@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Monedas</title>
+    <style>
+      /* Estilo de fondo */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #fa6d6d, #3a29b9);
+      }
+
+      /* Contenedor de la calculadora */
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+      }
+
+      h2 {
+        color: #2980b9;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #2980b9;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #1f6391;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #2980b9;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Calculadora de Recompensas</h2>
+      <label for="misiones">Misiones Completadas:</label>
+      <input type="number" id="misiones" min="0" value="0" />
+
+      <label for="enemigos">Enemigos Derrotados:</label>
+      <input type="number" id="enemigos" min="0" value="0" />
+
+      <label for="recompensa">Tipo de Recompensa:</label>
+      <select id="recompensa">
+        <option value="oro">Monedas de Oro</option>
+        <option value="gemas">Gemas</option>
+        <option value="experiencia">Puntos de Experiencia</option>
+      </select>
+
+      <button id="calcularBtn">Calcular</button>
+
+      <div class="result" id="resultado">Total de recompensas: 0</div>
+    </div>
+
+    <script>
+      document
+        .getElementById("calcularBtn")
+        .addEventListener("click", function () {
+          // Obtener valores de las entradas
+          const misiones = parseInt(document.getElementById("misiones").value);
+          const enemigos = parseInt(document.getElementById("enemigos").value);
+          const recompensa = document.getElementById("recompensa").value;
+
+          // Inicializar el total de recompensas
+          let total = 0;
+
+          // Lógica de cálculo según el tipo de recompensa
+          if (recompensa === "oro") {
+            total = misiones * 100 + enemigos * 10;
+          } else if (recompensa === "gemas") {
+            total = misiones * 5 + enemigos * 1;
+          } else if (recompensa === "experiencia") {
+            total = misiones * 500 + enemigos * 100;
+          }
+
+          // Mostrar el resultado en la página
+          document.getElementById("resultado").textContent =
+            "Total de recompensas: " + total;
+        });
+    </script>
+  </body>
+</html>
