@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Monedas</title>
+    <link rel="stylesheet" href="videogame.css" />
+    <!-- Enlace al archivo CSS -->
+  </head>
+  <body>
+    <div class="container">
+      <h2>Calculadora de Recompensas</h2>
+      <label for="misiones">Misiones Completadas:</label>
+      <input type="number" id="misiones" min="0" value="0" />
+
+      <label for="enemigos">Enemigos Derrotados:</label>
+      <input type="number" id="enemigos" min="0" value="0" />
+
+      <label for="recompensa">Tipo de Recompensa:</label>
+      <select id="recompensa">
+        <option value="oro">Monedas de Oro</option>
+        <option value="gemas">Gemas</option>
+        <option value="experiencia">Puntos de Experiencia</option>
+      </select>
+
+      <button id="calcularBtn">Calcular</button>
+
+      <div class="result" id="resultado">Total de recompensas: 0</div>
+    </div>
+
+    <script src="videogame.js"></script>
+    <!-- Enlace al archivo JavaScript -->
+  </body>
+</html>
